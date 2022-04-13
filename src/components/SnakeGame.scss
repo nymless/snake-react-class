@@ -1,0 +1,82 @@
+$board-width: 16;
+$board-height: 9;
+$square-size: 30px;
+$main-color: rgba(192, 252, 0);
+$secondary-color: rgba(192, 252, 0, 0.31);
+$background-color: rgb(0, 0, 0);
+$main-font: bold 20px Arial;
+
+.snakeGame {
+  font: $main-font;
+  color: $main-color;
+  background-color: $background-color;
+  width: fit-content;
+  padding: 20px;
+  border: 1px solid $main-color;
+
+  .board {
+    border: 2px solid $secondary-color;
+    display: grid;
+    grid-template-columns: repeat($board-width, 1fr);
+    grid-template-rows: repeat($board-height, 1fr);
+    position: relative;
+
+    .square {
+      width: $square-size;
+      height: $square-size;
+      border-radius: 5px;
+    }
+
+    .snake {
+      background-color: $main-color;
+    }
+
+    .gameOver {
+      color: $main-color;
+      position: absolute;
+      font-size: 60px;
+      width: 100%;
+      height: 100%;
+      line-height: $square-size * $board-height;
+      text-align: center;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+  }
+
+  .gameInfo {
+    padding: 20px 30px;
+    display: grid;
+    gap: 10px;
+    grid-template-columns: 1fr 1fr;
+
+    .button {
+      margin: 0 auto;
+      text-align: center;
+      padding: 0 20px;
+      border: 1px solid $secondary-color;
+      cursor: pointer;
+      border-radius: 5px;
+
+      &:hover {
+        border-color: $main-color;
+      }
+
+      &:focus {
+        outline: 1px solid $main-color;
+      }
+    }
+
+    .score {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+    }
+  }
+
+  .apple {
+    display: block;
+    width: $square-size;
+    height: $square-size;
+  }
+}
